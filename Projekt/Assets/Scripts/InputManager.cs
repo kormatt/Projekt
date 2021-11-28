@@ -50,4 +50,15 @@ public class InputManager : MonoBehaviour {
     public bool PlayerJumped() {
         return playerControls.Player.Jump.triggered;
     }
+
+    //Reading Shoot button defined for movment from input manager
+    public bool PlayerSchooted() {
+        return playerControls.Player.Shoot.triggered;
+    }
+    public bool NextGun() {
+        return playerControls.Player.NextGun.triggered;
+    }
+    public bool PrevGun() {
+        return playerControls.Player.PreviousGun.triggered;
+    }
 }

@@ -48,5 +48,13 @@ public class PlayerControler : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+
+
+        if (transform.position.y < -10f) {
+            transform.position = new Vector3(0f, 10f, 0f);
+            
+        }
+            
     }
 }
