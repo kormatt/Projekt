@@ -54,14 +54,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerControler.cs" />
+    <Compile Include="Assets\Scripts\EnemyControler.cs" />
     <Compile Include="Assets\Scripts\CinemachinePOVExtension.cs" />
+    <Compile Include="Assets\spawn.cs" />
     <Compile Include="Assets\Scripts\BuletControler.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\GunControler.cs" />
     <Compile Include="Assets\Scripts\MapCreation.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
-    <Compile Include="Assets\Scripts\EnemyControler.cs" />
-    <Compile Include="Assets\spawn.cs" />
+    <Compile Include="Assets\PlayerStats.cs" />
+    <Compile Include="Assets\PowerUp.cs" />
+    <Compile Include="Assets\test.cs" />
+    <Compile Include="Assets\Radius.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

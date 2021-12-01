@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyControler : MonoBehaviour
 {
     private Transform rockettarget;
@@ -10,9 +12,14 @@ public class EnemyControler : MonoBehaviour
     public float turnspeed = 1f;
     public float rocketflyspeed = 10f;
 
+    public int health { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
+        health = 3;
+        //Collider enemyCol = GetComponent<Collider>();
+        //enemyCol.isTrigger = true;
         rockettarget = GameObject.Find("Main Camera").transform;
         rb = GetComponent<Rigidbody>();
         
@@ -27,11 +34,13 @@ public class EnemyControler : MonoBehaviour
 
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Enemy") {
-            Physics.IgnoreCollision(other.GetComponent<Collider>(), other);
-        }
-        if (other.tag=="Player")
-            Debug.Log("Player!");
+        if (other.tag == "Player")
+            other.GetComponent<PlayerControler>().GetDamage();
+    }
 
+    public void GetDamage() {
+        health -= 1;
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }

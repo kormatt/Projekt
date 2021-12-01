@@ -12,22 +12,28 @@ public class PlayerControler : MonoBehaviour
 
     private Transform cameraTransform;
 
-    [SerializeField]
-    private float playerSpeed = 2.0f;
-    [SerializeField]
-    private float jumpHeight = 1.0f;
+
+    //private float playerSpeed = 2.0f;
+    //private float jumpHeight = 1.0f;
+
+
     [SerializeField]
     private float gravityValue = -9.81f;
 
     private InputManager inputManager;
+    private GunControler gunControler;
+
 
     private void Start() {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
+        gunControler = GunControler.Instance;
     }
 
     void Update() {
+        PlayerStats stats = GetComponent<PlayerStats>();
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0) {
             playerVelocity.y = 0f;
@@ -39,11 +45,11 @@ public class PlayerControler : MonoBehaviour
         move.y = 0f;
 
         move.Normalize();
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(move * Time.deltaTime * stats.playerSpeed);
 
         // Changes the height position of the player..
         if (inputManager.PlayerJumped() && groundedPlayer) {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerVelocity.y += Mathf.Sqrt(stats.jumpHeight * -3.0f * gravityValue);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -56,5 +62,10 @@ public class PlayerControler : MonoBehaviour
             
         }
             
+    }
+
+    public void GetDamage() {
+        if (GetComponent<PlayerStats>().hp <= 0)
+            Debug.Log("PLAYER DEAD!");
     }
 }

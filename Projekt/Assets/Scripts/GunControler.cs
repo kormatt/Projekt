@@ -2,17 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunControler : MonoBehaviour
-{
+
+public class GunControler : MonoBehaviour {
 
     private InputManager inputManager;
-    public bool readytoshot;
-    public int guntype;
-    public GameObject Bullet;
-    private float spread;
+    private bool readytoshot;
 
+    public GameObject Bullet;    
     private float nextFire;
+
+    [SerializeField]
+    private int shoots = 0;
+    [SerializeField]
+    private float spread = 0;
+    [SerializeField]
     private float FireRate = 1f;
+
+    //Singleton pattern 
+    private static GunControler _instance;
+    public static GunControler Instance {
+        get {
+            return _instance;
+        }
+    }
+
+    private void Awake() {
+        //checking if that instance exist, if yes destroy this object, singleton pattern 
+        if (_instance != null && _instance != this) {
+            Destroy(this.gameObject);
+        }
+        else {
+            _instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,46 +50,10 @@ public class GunControler : MonoBehaviour
 
         if (readytoshot && Time.time > nextFire) {
             nextFire = Time.time + FireRate;
-            Debug.Log("PEW");
-            if (guntype == 3)
-                for (int i = 7; i >= 0; i--)
+                for (int i = shoots; i >= 0; i--)
                     Shoot();
-            else
-                Shoot();
-        }
-        else {
-            if (inputManager.NextGun()) {
-                changeGun(1);
-            }
-            if (inputManager.PrevGun()) {
-                changeGun(-1);
-            }
         }
 
-    }
-
-    void changeGun(int i) {
-        if (guntype + i > 3) { guntype = 1; }
-        else if (guntype - i > 0) { guntype = 3; }
-        else guntype += i;            
-
-        switch (guntype) {
-            case 1:
-                FireRate = 0.5f;
-                spread = 0f;
-                
-                break;
-            case 2:
-                FireRate = 0.01f;
-                spread = 2f;
-
-                break;
-            case 3:
-                FireRate = 1f;
-                spread = 5f;
-
-                break;
-        }
     }
 
     void Shoot() {
@@ -79,6 +66,26 @@ public class GunControler : MonoBehaviour
         var bullet = Instantiate(Bullet, barrelPos, transform.parent.rotation);
         bullet.transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
 
-        Destroy(bullet, 5);
+        Destroy(bullet, 2);
+    }
+
+    public void PowerMoreBullets(int i) {
+        shoots += i;
+        for(int j = i;j>=0;j--)
+            FireRate = FireRate *1.2f ;
+        spread += 1f;
+        Debug.Log(FireRate);
+    }
+    public void PowerFasterFireRate(int i) {
+        if (FireRate >= 0.03f) {
+            FireRate -= 0.03f * i;
+            spread += 1f;
+            Debug.Log(FireRate);
+        }
+    }
+    public void PowerBetterAccu(int i) {
+        if(spread>=0.7f)
+        spread -= 0.7f;
+
     }
 }

@@ -26,7 +26,7 @@ public class MapCreation : MonoBehaviour
                     tileWalkable.transform.parent = gameObject.transform;
                 }
             }
-        CombineMap();
+        //CombineMap();
     }
 
     void CombineMap() {
