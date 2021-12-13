@@ -4829,7 +4829,7 @@ GameObject:
   - component: {fileID: 8626573756968611873}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4893,6 +4893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnspeed: 1
   rocketflyspeed: 10
+  health: 3
 --- !u!1001 &7131334314608700863
 PrefabInstance:
   m_ObjectHideFlags: 0

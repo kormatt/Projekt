@@ -12,12 +12,12 @@ public class EnemyControler : MonoBehaviour
     public float turnspeed = 1f;
     public float rocketflyspeed = 10f;
 
-    public int health { get; set; }
+    public int health = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 3;
+ 
         //Collider enemyCol = GetComponent<Collider>();
         //enemyCol.isTrigger = true;
         rockettarget = GameObject.Find("Main Camera").transform;
@@ -38,7 +38,7 @@ public class EnemyControler : MonoBehaviour
             other.GetComponent<PlayerControler>().GetDamage();
     }
 
-    public void GetDamage() {
+    public void GetDamage(int amount) {
         health -= 1;
         if (health <= 0)
             Destroy(gameObject);

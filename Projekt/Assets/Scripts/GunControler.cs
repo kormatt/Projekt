@@ -11,13 +11,11 @@ public class GunControler : MonoBehaviour {
     public GameObject Bullet;    
     private float nextFire;
 
-    [SerializeField]
-    private int shoots = 0;
-    [SerializeField]
+    private int shoots = 0; 
     private float spread = 0;
-    [SerializeField]
+    private float firstspread = 2f;  
     private float FireRate = 1f;
-
+    private int bulletDamage = 1;
     //Singleton pattern 
     private static GunControler _instance;
     public static GunControler Instance {
@@ -50,8 +48,17 @@ public class GunControler : MonoBehaviour {
 
         if (readytoshot && Time.time > nextFire) {
             nextFire = Time.time + FireRate;
-                for (int i = shoots; i >= 0; i--)
+                for (int i = shoots; i >= 0; i--) {
+                if (i == 2 && spread > firstspread) {
+                    float tempSpread = spread;
+                    spread = firstspread;
                     Shoot();
+                    spread = tempSpread;
+                    i--;
+                }
+                    Shoot();
+            }
+                    
         }
 
     }
@@ -65,7 +72,7 @@ public class GunControler : MonoBehaviour {
 
         var bullet = Instantiate(Bullet, barrelPos, transform.parent.rotation);
         bullet.transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
-
+        bullet.GetComponentInChildren<BulletControler>().damage = bulletDamage;
         Destroy(bullet, 2);
     }
 
@@ -84,8 +91,33 @@ public class GunControler : MonoBehaviour {
         }
     }
     public void PowerBetterAccu(int i) {
-        if(spread>=0.7f)
-        spread -= 0.7f;
+        if(spread>=0.51f)
+        spread -= 0.5f;
 
+    }
+
+    public void SetWeapon(int i) {
+        switch (i) {
+            case 1:
+                FireRate = 1.5f;
+                shoots = 4;
+                spread = 8f;
+                bulletDamage = 2;
+                break;
+            case 2:
+                FireRate = 0.7f;
+                shoots = 0;
+                spread = 2f;
+                bulletDamage = 1;
+                break;
+            case 3:
+                FireRate = 2f;
+                shoots = 0;
+                spread = 0f;
+                bulletDamage = 10;
+                break;
+            default:
+                break;
+        }
     }
 }
