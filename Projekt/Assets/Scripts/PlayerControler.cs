@@ -10,7 +10,7 @@ public class PlayerControler : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
-    private Transform cameraTransform;
+    public Transform cameraTransform;
 
 
     //private float playerSpeed = 2.0f;
@@ -26,8 +26,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Start() {
         controller = GetComponent<CharacterController>();
-        inputManager = InputManager.Instance;
-        cameraTransform = Camera.main.transform;
+        inputManager = InputManager.Instance;  
         gunControler = GunControler.Instance;
     }
 

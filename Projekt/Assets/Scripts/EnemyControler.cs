@@ -20,7 +20,7 @@ public class EnemyControler : MonoBehaviour
  
         //Collider enemyCol = GetComponent<Collider>();
         //enemyCol.isTrigger = true;
-        rockettarget = GameObject.Find("Main Camera").transform;
+        rockettarget = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody>();
         
     }
