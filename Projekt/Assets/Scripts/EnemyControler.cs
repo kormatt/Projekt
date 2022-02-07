@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyControler : MonoBehaviour
 {
-    private Transform rockettarget;
+    private Transform targer;
     private Rigidbody rb;
 
-    public float turnspeed = 1f;
-    public float rocketflyspeed = 10f;
+    public float TurnSpeed = 1f;
+    public float Speed = 10f;
 
-    public int health = 3;
+    public int Health = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class EnemyControler : MonoBehaviour
  
         //Collider enemyCol = GetComponent<Collider>();
         //enemyCol.isTrigger = true;
-        rockettarget = GameObject.Find("Player").transform;
+        targer = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody>();
         
     }
@@ -28,9 +28,11 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.forward * rocketflyspeed;
-        var rocktargrot = Quaternion.LookRotation(rockettarget.position - transform.position);
-        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocktargrot, turnspeed));
+        if (Health > 0) {
+            rb.velocity = transform.forward * Speed;
+            var rocktargrot = Quaternion.LookRotation(targer.position - transform.position);
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocktargrot, TurnSpeed));
+        }
 
     }
     private void OnTriggerEnter(Collider other) {
@@ -39,8 +41,8 @@ public class EnemyControler : MonoBehaviour
     }
 
     public void GetDamage(int amount) {
-        health -= 1;
-        if (health <= 0)
-            Destroy(gameObject);
+        Health -= 1;
+        if (Health <= 0) { }
+            //Destroy(gameObject);
     }
 }

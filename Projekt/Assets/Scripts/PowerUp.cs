@@ -5,7 +5,17 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField]
-    private int durr = 5; 
+    private int durr = 5;
+    private Vector3 _startPosition;
+
+    private void Start() {
+        _startPosition = transform.position;
+    }
+
+    private void Update() {
+        transform.position = _startPosition + new Vector3(0.0f, Mathf.Sin(Time.time)/5, 0.0f);
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             StartCoroutine(Affect(other));

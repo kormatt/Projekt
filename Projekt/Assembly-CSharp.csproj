@@ -109,6 +109,7 @@
     <Compile Include="Assets\Eryk\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Eryk\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Eryk\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\LavaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Eryk\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -126,6 +127,7 @@
     <None Include="Assets\Eryk\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Eryk\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Eryk\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\3rd\BrokenVector\FreeLowPolyPack\readme.txt" />
     <None Include="Assets\Eryk\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Eryk\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Eryk\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />

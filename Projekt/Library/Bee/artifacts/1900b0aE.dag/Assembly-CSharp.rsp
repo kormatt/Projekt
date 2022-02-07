@@ -376,6 +376,7 @@
 "Assets/Eryk/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/Eryk/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/Eryk/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/LavaController.cs"
 "Assets/Scripts/ActivateBridge.cs"
 "Assets/Scripts/BulletControler.cs"
 "Assets/Scripts/CinemachinePOVExtension.cs"
