@@ -394,6 +394,7 @@
 "Assets/Scripts/Radius.cs"
 "Assets/Scripts/spawn.cs"
 "Assets/Scripts/test.cs"
+"Assets/SpawnSelector.cs"
 -langversion:8.0
 
 /deterministic

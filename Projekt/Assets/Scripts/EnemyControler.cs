@@ -42,7 +42,9 @@ public class EnemyControler : MonoBehaviour
 
     public void GetDamage(int amount) {
         Health -= 1;
-        if (Health <= 0) { }
+        if (Health <= 0) {
+            this.GetComponent<BoxCollider>().isTrigger = false;
+        }
             //Destroy(gameObject);
     }
 }

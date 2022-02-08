@@ -48,6 +48,8 @@ MonoBehaviour:
   Island: {fileID: 1115517784477907367, guid: fbb81d66082d2c4449e3d827f38efde0, type: 3}
   tile: {fileID: 6551211509582257607, guid: a04ef6706308ca5478ae41467a8567cc, type: 3}
   width: 5
+  TargetMaterial: {fileID: 2100000, guid: f4f133d1bd65cdf4bbd136349929bc5c, type: 2}
+  EffectMaterial: {fileID: 2100000, guid: dca9d97044034ec42ba9505fabfecf92, type: 2}
 --- !u!33 &-1788618645643479070
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -76,7 +78,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ab8149ec4775284bada96c1b85b4a09, type: 2}
+  - {fileID: 2100000, guid: f4f133d1bd65cdf4bbd136349929bc5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

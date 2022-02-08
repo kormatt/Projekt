@@ -31,7 +31,6 @@ public class PlayerControler : MonoBehaviour
     }
 
     void Update() {
-        PlayerStats stats = GetComponent<PlayerStats>();
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0) {
@@ -44,11 +43,11 @@ public class PlayerControler : MonoBehaviour
         move.y = 0f;
 
         move.Normalize();
-        controller.Move(move * Time.deltaTime * stats.playerSpeed);
+        controller.Move(move * Time.deltaTime * PlayerStats.playerSpeed);
 
         // Changes the height position of the player..
         if (inputManager.PlayerJumped() && groundedPlayer) {
-            playerVelocity.y += Mathf.Sqrt(stats.jumpHeight * -3.0f * gravityValue);
+            playerVelocity.y += Mathf.Sqrt(PlayerStats.jumpHeight * -3.0f * gravityValue);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -64,7 +63,7 @@ public class PlayerControler : MonoBehaviour
     }
 
     public void GetDamage() {
-        if (GetComponent<PlayerStats>().hp <= 0)
+        if (PlayerStats.hp <= 0)
             Debug.Log("PLAYER DEAD!");
     }
 }

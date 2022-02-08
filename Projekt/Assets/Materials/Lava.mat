@@ -19,12 +19,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - AmbientOcclusion:
+        m_Texture: {fileID: 2800000, guid: 7385f77603e598042988b50728804452, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Emissive:
+        m_Texture: {fileID: 2800000, guid: 82e1f644fb8e5504393566f67abc8f19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - MainTexture:
-        m_Texture: {fileID: 2800000, guid: 7626f2413f5914149b319dc6b621a910, type: 3}
+        m_Texture: {fileID: 2800000, guid: d11561a80694bd64f9b27f8577d16fbf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Matllic:
+        m_Texture: {fileID: 2800000, guid: 9be07e88bf304ab4b8ec2efeab744e75, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - NormalMap:
-        m_Texture: {fileID: 2800000, guid: 5469ec3ee4c2fc74ca19901bd83c6614, type: 3}
+        m_Texture: {fileID: 2800000, guid: 680e77cf49a6fae4dbb07ba51303bb6f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -44,7 +56,9 @@ Material:
     - HeatMultiplier: 4.18
     - MetalicMultiplier: 0.1
     - ShellMultiplier: 5
-    m_Colors: []
+    - Speed: 0.05
+    m_Colors:
+    - Tiling: {r: 100, g: 100, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &945364454625579958
 MonoBehaviour:

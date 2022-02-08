@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
-  
-    public float playerSpeed = 2.0f;
-    public float jumpHeight = 1.0f;
-    public int hp = 0;
+
+    [SerializeField] public static float playerSpeed = 2.0f;
+    [SerializeField] public static float jumpHeight = 1.0f;
+    [SerializeField] public static int hp = 3;
+    [SerializeField] public static int OpenIslands = 0;
 
 }

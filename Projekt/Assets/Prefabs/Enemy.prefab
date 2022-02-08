@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurnSpeed: 1
   Speed: 10
-  Health: 3
+  Health: 1
 --- !u!1001 &7131334314608700863
 PrefabInstance:
   m_ObjectHideFlags: 0

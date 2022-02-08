@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 30
-  floorObjectWalkable: {fileID: 3910221826615430122, guid: 1ba2cab2bc8286d4893e23f4148de5f6, type: 3}
   floorObjectNonWalkable: {fileID: 6551211509582257607, guid: a04ef6706308ca5478ae41467a8567cc, type: 3}
+  enemySpawner: {fileID: 281653709963918042, guid: 11fb49f879160ef4499189d8c0f65022, type: 3}
   bridge: {fileID: 7208623928459792423, guid: fb2106bb9aed0974aa67686b8d409b4b, type: 3}
+  TargetMaterial: {fileID: 2100000, guid: f4f133d1bd65cdf4bbd136349929bc5c, type: 2}
+  EffectMaterial: {fileID: 2100000, guid: dca9d97044034ec42ba9505fabfecf92, type: 2}
 --- !u!33 &1115517784477907363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -78,7 +80,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c181c23a6120fbe4aadd5bb53a58dd78, type: 2}
+  - {fileID: 2100000, guid: f4f133d1bd65cdf4bbd136349929bc5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

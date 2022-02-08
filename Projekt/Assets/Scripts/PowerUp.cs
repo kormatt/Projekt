@@ -29,16 +29,15 @@ public class PowerUp : MonoBehaviour
         gunControler.PowerFasterFireRate(1);
         gunControler.PowerBetterAccu(1);
 
-        PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.jumpHeight += 0.01f;
-        stats.playerSpeed += 0.1f;
-        stats.hp = 1;
+        PlayerStats.jumpHeight += 0.01f;
+        PlayerStats.playerSpeed += 10f;
+        PlayerStats.hp = 1;
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
         yield return new WaitForSeconds(durr);
-        stats.hp = 0;
+        PlayerStats.hp = 0;
         Destroy(gameObject);
     }
 

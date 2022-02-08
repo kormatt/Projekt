@@ -6,13 +6,18 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class MapCreation : MonoBehaviour
 {
-    
+  
     public int radius;
     [SerializeField]
-    private GameObject floorObjectWalkable;
-    [SerializeField]
     private GameObject floorObjectNonWalkable;
+    [SerializeField]
+    private GameObject enemySpawner;
     public GameObject bridge;
+    public Material TargetMaterial;
+    public Material EffectMaterial;
+
+
+    private float islandState=1f;
 
     // Start is called before the first frame update
     void Start() {
@@ -31,6 +36,10 @@ public class MapCreation : MonoBehaviour
             }
         CombineMap();
 
+        for(int i = 0; i<= PlayerStats.OpenIslands*2;i++)
+            placeSpawners();
+
+
         for (int i = -radius; i < radius; i++)
             for (int j = -radius; j < radius; j++) {
                 if (i == -1  || i == 0 || i == 1)
@@ -40,6 +49,25 @@ public class MapCreation : MonoBehaviour
                             _bridge.transform.parent = gameObject.transform;
                     }
             }
+    }
+
+    private void placeSpawners() {
+        Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius/2, 2, Random.insideUnitCircle.y * radius / 2);
+        targetPos += this.transform.position;
+        Instantiate(enemySpawner, targetPos, Quaternion.identity);
+    }
+
+    private void Update() {
+
+        if (islandState >= -1f){
+            this.GetComponent<MeshRenderer>().material = EffectMaterial;
+            this.GetComponent<MeshRenderer>().sharedMaterial.SetFloat("State", islandState);
+            islandState -= Time.deltaTime;
+        }
+        else {
+            this.GetComponent<MeshRenderer>().material = TargetMaterial;
+        }
+        
     }
 
     void CombineMap() {
