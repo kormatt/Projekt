@@ -22,7 +22,7 @@ public class MapCreation : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         Vector2 pos = new Vector2(transform.position.x, transform.position.z);
-        Debug.Log(pos);
+        //Debug.Log(pos);
         for (int i = -radius; i < radius; i++)
             for (int j = -radius; j < radius; j++) {
 

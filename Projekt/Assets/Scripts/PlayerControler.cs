@@ -1,4 +1,4 @@
-using UnityEngine; 
+using UnityEngine;
 
 //Character Controller is required to run that script
 [RequireComponent(typeof(CharacterController))]
@@ -13,10 +13,6 @@ public class PlayerControler : MonoBehaviour
     public Transform cameraTransform;
 
 
-    //private float playerSpeed = 2.0f;
-    //private float jumpHeight = 1.0f;
-
-
     [SerializeField]
     private float gravityValue = -9.81f;
 
@@ -24,29 +20,32 @@ public class PlayerControler : MonoBehaviour
     private GunControler gunControler;
 
 
-    private void Start() {
+    private void Start()
+    {
         controller = GetComponent<CharacterController>();
-        inputManager = InputManager.Instance;  
+        inputManager = InputManager.Instance;
         gunControler = GunControler.Instance;
     }
 
-    void Update() {
-
+    void Update()
+    {
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0) {
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
             playerVelocity.y = 0f;
         }
 
         Vector2 movment = inputManager.GetPlayerMovement();
-        Vector3 move = new Vector3(movment.x, 0f, movment.y);        
-        move = cameraTransform.forward * move.z + cameraTransform.right * move.x;        
+        Vector3 move = new Vector3(movment.x, 0f, movment.y);
+        move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
 
         move.Normalize();
         controller.Move(move * Time.deltaTime * PlayerStats.playerSpeed);
 
         // Changes the height position of the player..
-        if (inputManager.PlayerJumped() && groundedPlayer) {
+        if (inputManager.PlayerJumped() && groundedPlayer)
+        {
             playerVelocity.y += Mathf.Sqrt(PlayerStats.jumpHeight * -3.0f * gravityValue);
         }
 
@@ -55,15 +54,20 @@ public class PlayerControler : MonoBehaviour
 
 
 
-        if (transform.position.y < -10f) {
+        if (transform.position.y < -10f)
+        {
             transform.position = new Vector3(0f, 10f, 0f);
-            
+
         }
-            
     }
 
-    public void GetDamage() {
-        if (PlayerStats.hp <= 0)
-            Debug.Log("PLAYER DEAD!");
+    public bool IsDead()
+    {
+        Health playerHealth = gameObject.GetComponent<Health>();
+        if (playerHealth != null && playerHealth.IsDead())
+        {
+            return true;
+        }
+        return false;
     }
 }

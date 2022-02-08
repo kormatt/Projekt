@@ -4944,6 +4944,7 @@ GameObject:
   - component: {fileID: 3474080696765404194}
   - component: {fileID: 1036383046222354186}
   - component: {fileID: 4892949537135581118}
+  - component: {fileID: 2461539237922732386}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -5041,4 +5042,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8441f912404f94bb674c518b06f0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
+--- !u!136 &2461539237922732386
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7772053858594469514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

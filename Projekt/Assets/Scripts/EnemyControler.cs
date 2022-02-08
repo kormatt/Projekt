@@ -11,7 +11,7 @@ public class EnemyControler : MonoBehaviour
 
     public float TurnSpeed = 1f;
     public float Speed = 10f;
-
+    [SerializeField] private int damage = 3;
     public int Health = 3;
 
     // Start is called before the first frame update
@@ -37,7 +37,8 @@ public class EnemyControler : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player")
-            other.GetComponent<PlayerControler>().GetDamage();
+            other.GetComponent<Health>().GetDamage(damage);
+        //we we to mi zmien
     }
 
     public void GetDamage(int amount) {

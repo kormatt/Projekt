@@ -37,7 +37,7 @@ public class PowerUp : MonoBehaviour
         GetComponent<Collider>().enabled = false;
 
         yield return new WaitForSeconds(durr);
-        PlayerStats.hp = 0;
+        //PlayerStats.hp = 0;
         Destroy(gameObject);
     }
 
