@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    [SerializeField] public static float playerSpeed = 4.0f;
-    [SerializeField] public static float jumpHeight = 1.0f;
-    [SerializeField] public static int hp = 3;
-    [SerializeField] public static int OpenIslands = 0;
+    public static float playerSpeed;
+    public static float jumpHeight;
+    public static int OpenIslands;
+
+
+    private float startPlayerSpeed = 10.0f;
+    private float startJumpHeight = 1.0f;
+
+    private void Start() {
+        jumpHeight = startJumpHeight;
+        playerSpeed = startPlayerSpeed;
+        OpenIslands = 0;
+    }
 
 }

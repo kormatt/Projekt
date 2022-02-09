@@ -2,8 +2,7 @@ using UnityEngine;
 
 //Character Controller is required to run that script
 [RequireComponent(typeof(CharacterController))]
-public class PlayerControler : MonoBehaviour
-{
+public class PlayerControler : MonoBehaviour {
 
     // BASED ON UNITY DOC EXAMPLE
     private CharacterController controller;
@@ -20,18 +19,15 @@ public class PlayerControler : MonoBehaviour
     private GunControler gunControler;
 
 
-    private void Start()
-    {
+    private void Start() {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         gunControler = GunControler.Instance;
     }
 
-    void Update()
-    {
+    void Update() {
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
+        if (groundedPlayer && playerVelocity.y < 0) {
             playerVelocity.y = 0f;
         }
 
@@ -44,8 +40,7 @@ public class PlayerControler : MonoBehaviour
         controller.Move(move * Time.deltaTime * PlayerStats.playerSpeed);
 
         // Changes the height position of the player..
-        if (inputManager.PlayerJumped() && groundedPlayer)
-        {
+        if (inputManager.PlayerJumped() && groundedPlayer) {
             playerVelocity.y += Mathf.Sqrt(PlayerStats.jumpHeight * -3.0f * gravityValue);
         }
 
@@ -53,19 +48,13 @@ public class PlayerControler : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
 
-
-        if (transform.position.y < -10f)
-        {
-            transform.position = new Vector3(0f, 10f, 0f);
-
-        }
+        if (transform.position.y <= -0)
+            GetComponent<Health>().GetDamage(int.MaxValue);
     }
 
-    public bool IsDead()
-    {
+    public bool IsDead() {
         Health playerHealth = gameObject.GetComponent<Health>();
-        if (playerHealth != null && playerHealth.IsDead())
-        {
+        if (playerHealth != null && playerHealth.IsDead()) {
             return true;
         }
         return false;

@@ -31,7 +31,7 @@ public class PowerUp : MonoBehaviour
 
         PlayerStats.jumpHeight += 0.01f;
         PlayerStats.playerSpeed += 10f;
-        PlayerStats.hp = 1;
+        //PlayerStats.hp = 1;
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;

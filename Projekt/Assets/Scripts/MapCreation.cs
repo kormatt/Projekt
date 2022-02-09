@@ -16,6 +16,8 @@ public class MapCreation : MonoBehaviour
     public Material TargetMaterial;
     public Material EffectMaterial;
 
+    [SerializeField] private GameObject[] decorations;
+    [SerializeField] private GameObject[] rocks;
 
     private float islandState=1f;
 
@@ -36,7 +38,9 @@ public class MapCreation : MonoBehaviour
             }
         CombineMap();
 
-        for(int i = 0; i<= PlayerStats.OpenIslands*2;i++)
+        DecorateMap();
+
+        for (int i = 0; i<= PlayerStats.OpenIslands*2;i++)
             placeSpawners();
 
 
@@ -51,8 +55,40 @@ public class MapCreation : MonoBehaviour
             }
     }
 
+    private void DecorateMap() {
+
+        //normal decorations
+        for(int i = 0; i<=10; i++) {
+            Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius / 1.5f, 0.5f, Random.insideUnitCircle.y * radius / 1.5f) ;
+            targetPos += this.transform.position;
+            var decoration = Instantiate(decorations[Random.Range(0,decorations.Length)], targetPos, Quaternion.identity);
+            var randomNumberY = Random.Range(0, 360);
+            decoration.transform.Rotate(0, randomNumberY, 0);
+            float scale = Random.Range(0.7f, 2f);
+            decoration.transform.localScale = new Vector3(scale, scale, scale);
+        }
+        //rocks
+        for (int i = 0; i <= Random.Range(0,6); i++) {
+            Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius / 1.5f, 0.5f, Random.insideUnitCircle.y * radius / 1.5f);            
+            targetPos += this.transform.position;
+            for (int j = 0; j <= Random.Range(0, 4); j++) {
+                targetPos += new Vector3(Random.insideUnitCircle.x, 0, Random.insideUnitCircle.y);
+                var rockPile = Instantiate(rocks[Random.Range(0, rocks.Length)], targetPos, Quaternion.identity);
+                rockPile.transform.localScale = new Vector3(j+1, j+1, j+1);
+  
+                var randomNumberY = Random.Range(0, 360);
+                rockPile.transform.Rotate(0, randomNumberY, 0);
+
+                rockPile.name = "Rock pile no: " + i + " rock no: " + j;
+                
+            }
+                
+        }
+
+    }
+
     private void placeSpawners() {
-        Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius/2, 2, Random.insideUnitCircle.y * radius / 2);
+        Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius/2f, 0.5f, Random.insideUnitCircle.y * radius / 2f);
         targetPos += this.transform.position;
         Instantiate(enemySpawner, targetPos, Quaternion.identity);
     }

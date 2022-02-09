@@ -52,6 +52,33 @@ MonoBehaviour:
   bridge: {fileID: 7208623928459792423, guid: fb2106bb9aed0974aa67686b8d409b4b, type: 3}
   TargetMaterial: {fileID: 2100000, guid: f4f133d1bd65cdf4bbd136349929bc5c, type: 2}
   EffectMaterial: {fileID: 2100000, guid: dca9d97044034ec42ba9505fabfecf92, type: 2}
+  decorations:
+  - {fileID: 5899581772680663418, guid: 7d2041206c208f54991b199315b8f7a8, type: 3}
+  - {fileID: 2736999718936250401, guid: 3ad58da949d5de343b7c21cee04361ce, type: 3}
+  - {fileID: 6283106080814608278, guid: 06d032abe82fad741b5025b9013bb63a, type: 3}
+  - {fileID: 2055844540189557542, guid: 877b08f512178384dadca8cf28e31a7e, type: 3}
+  - {fileID: 7925908207704047568, guid: 335946c4528dd1e4cb26cd4893d8ac70, type: 3}
+  - {fileID: 3926871240113185768, guid: 08dc6dea988fc6d4db0c50c111bd77dc, type: 3}
+  - {fileID: 8002461263218542219, guid: 16cfe0f76e1afc24ca16a7080d66f082, type: 3}
+  - {fileID: 7925908207704047568, guid: 335946c4528dd1e4cb26cd4893d8ac70, type: 3}
+  - {fileID: 8333869302400229472, guid: 61982c2c99063e44e9e4646d763c0439, type: 3}
+  rocks:
+  - {fileID: 100000, guid: bec7b0c0a9837ba49a11c88f26ce8841, type: 3}
+  - {fileID: 100000, guid: 28642c7f20a1598488cefd7f00b94865, type: 3}
+  - {fileID: 100000, guid: 9182df85a73960c4d87b889f3639ba9b, type: 3}
+  - {fileID: 100000, guid: bd9b79329ba9dda488da003696edc754, type: 3}
+  - {fileID: 100000, guid: 7f3f9dd74e3766a4dbf5bdbbc9ee54ff, type: 3}
+  - {fileID: 100000, guid: 18825f1b116444645925daec351e81ba, type: 3}
+  - {fileID: 100000, guid: e4b66841754e4ed438f2b3bc5e615425, type: 3}
+  - {fileID: 100000, guid: 826cbc77d62dbc4418e186b44dc66935, type: 3}
+  - {fileID: 100000, guid: 6ad2835734317d446b4fdcf875dbd656, type: 3}
+  - {fileID: 100000, guid: 93726671bc06c184ba6a85739484322a, type: 3}
+  - {fileID: 100000, guid: a03f69509415d8147aebaf0f50552c7d, type: 3}
+  - {fileID: 100000, guid: 1e64ea19b4d014c4ab33b8345425c9e3, type: 3}
+  - {fileID: 100000, guid: 644255a0198675a44828611a93cd87d9, type: 3}
+  - {fileID: 100000, guid: be97290b187d1824fb4b2d06b9505f81, type: 3}
+  - {fileID: 100000, guid: 8047fe64bb2ad034db828801e87a3a02, type: 3}
+  - {fileID: 100000, guid: 02b8195cc92dcfe4da1770d5c860a657, type: 3}
 --- !u!33 &1115517784477907363
 MeshFilter:
   m_ObjectHideFlags: 0
