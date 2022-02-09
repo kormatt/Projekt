@@ -12,7 +12,6 @@ public class EnemyControler : MonoBehaviour
     public float TurnSpeed = 1f;
     public float Speed = 10f;
     [SerializeField] private int damage = 3;
-    public int Health = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +27,13 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Health > 0) {
+        if (!GetComponent<Health>().IsDead()) {
             rb.velocity = transform.forward * Speed;
             var rocktargrot = Quaternion.LookRotation(targer.position - transform.position);
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocktargrot, TurnSpeed));
+        }
+        else {
+            this.GetComponent<BoxCollider>().isTrigger = false;
         }
 
     }
@@ -41,11 +43,5 @@ public class EnemyControler : MonoBehaviour
         //we we to mi zmien
     }
 
-    public void GetDamage(int amount) {
-        Health -= 1;
-        if (Health <= 0) {
-            this.GetComponent<BoxCollider>().isTrigger = false;
-        }
-            //Destroy(gameObject);
-    }
+
 }

@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 445981775900121635}
   m_Layer: 0
   m_Name: HP_Golem
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,8 +360,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 4
+  m_Radius: 0.82
+  m_Height: 4.26
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &445981775900121634
@@ -380,6 +380,7 @@ MonoBehaviour:
   movementSpeed: 2.5
   rotationSpeed: 12.5
   visionRange: 20
+  randomization: 1
   attackInterval: 2.5
   countdownToAttack: 0
   zoombieAttackDamage: 10
@@ -395,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed95f117f9aa699449935b83b9298485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 7
 --- !u!1 &447400652583923773
 GameObject:
   m_ObjectHideFlags: 0

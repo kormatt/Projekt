@@ -33,7 +33,8 @@ public class BulletControler : MonoBehaviour
         Debug.Log(other.tag);
         if (other.tag == "Enemy")
             other.GetComponent<Health>().GetDamage(damage);
-        Destroy(gameObject);
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
        
     }
 }

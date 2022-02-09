@@ -15,6 +15,7 @@ public class SpawnSelector : MonoBehaviour {
         currPosition.y = 0.5f;
         int whatToSpawn = Random.Range(0, enemies.Length);
         for (int i = 0; i < Random.Range(3, 6); i++) {
+            PlayerStats.EnemiesToKill++;
             currPosition += new Vector3(Random.insideUnitCircle.x * radius, 0f, Random.insideUnitCircle.y * radius);
             Instantiate(enemies[whatToSpawn], currPosition, Quaternion.identity);
         }

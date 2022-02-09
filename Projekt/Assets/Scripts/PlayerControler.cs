@@ -10,7 +10,7 @@ public class PlayerControler : MonoBehaviour {
     private bool groundedPlayer;
 
     public Transform cameraTransform;
-
+    private bool deadSoundPlayed = false;
 
     [SerializeField]
     private float gravityValue = -9.81f;
@@ -18,11 +18,14 @@ public class PlayerControler : MonoBehaviour {
     private InputManager inputManager;
     private GunControler gunControler;
 
+    public GameObject ResumeButton;
 
+    public Animator transition;
     private void Start() {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         gunControler = GunControler.Instance;
+        deadSoundPlayed = false;
     }
 
     void Update() {
@@ -50,6 +53,15 @@ public class PlayerControler : MonoBehaviour {
 
         if (transform.position.y <= -0)
             GetComponent<Health>().GetDamage(int.MaxValue);
+
+
+        if (IsDead() && !deadSoundPlayed) {
+            Debug.Log("PLAYER HAS DIED");
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+            deadSoundPlayed = true;
+            transition.SetTrigger("PlayerHasDied");
+            ResumeButton.SetActive(false);            
+        }
     }
 
     public bool IsDead() {

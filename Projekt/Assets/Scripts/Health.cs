@@ -1,20 +1,36 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Health : MonoBehaviour
 {
 	public float health = 100.0f;
+	private float starthealth;
+    //private Animator animator;
 
-	//private Animator animator;
+    private Volume v;
+    private Bloom b;
+    private Vignette vg;
+    private GameObject postProcessing;
 
-	void Start()
+    void Start()
 	{
-		//animator = GetComponent<Animator>();
-		//StartCoroutine(waiter());
-	}
+        postProcessing = GameObject.Find("/PostProcessing");
+        starthealth = health;
+        //animator = GetComponent<Animator>();
+        //StartCoroutine(waiter());
+    }
 
     public void GetDamage(float damage)
     {
+        if (gameObject.tag == "Player") {
+            v = postProcessing.GetComponent<Volume>();
+            v.profile.TryGet(out vg);
+            Debug.Log("Player get hit!");
+
+            float currper = 1 - (health / starthealth);
+            vg.intensity.value = currper;
+        }
         Debug.Log(damage+" damage dealt");
         if (health > 0)
         {
@@ -34,9 +50,14 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        //animator.SetBool("isDead", true);
-        Destroy(gameObject, 2.5f);
-        Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);
+        
+        if(gameObject.tag != "Player") {
+            Destroy(gameObject);
+            //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);
+            //animator.SetBool("isDead", true);
+        }
+
+
     }
 
     public bool IsDead()

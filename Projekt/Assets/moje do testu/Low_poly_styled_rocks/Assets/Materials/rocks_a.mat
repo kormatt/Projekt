@@ -21,18 +21,29 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rocks_a
-  m_Shader: {fileID: 4800000, guid: 0ca6dca7396eb48e5849247ffd444914, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 21e629fffcaae6a48b12bf19b4fcb68c, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 6
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Emmision:
+        m_Texture: {fileID: 2800000, guid: 82e1f644fb8e5504393566f67abc8f19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Main:
+        m_Texture: {fileID: 2800000, guid: d11561a80694bd64f9b27f8577d16fbf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Normal:
+        m_Texture: {fileID: 2800000, guid: d11561a80694bd64f9b27f8577d16fbf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 87907740e9747ce41902f52d8c50460f, type: 3}
         m_Scale: {x: -11.87, y: 1}

@@ -338,6 +338,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/3rd/True_Horror_Creatures/Horror_creature6_v1.0/Script/THC6_ctrl.cs"
+"Assets/AudioManager.cs"
 "Assets/Eryk/BackgroundMusic.cs"
 "Assets/Eryk/MainMenu.cs"
 "Assets/Eryk/MuteSound.cs"
@@ -401,6 +402,7 @@
 "Assets/Scripts/spawn.cs"
 "Assets/Scripts/test.cs"
 "Assets/Scripts/ZoombieControler.cs"
+"Assets/Sound.cs"
 "Assets/SpawnSelector.cs"
 -langversion:8.0
 

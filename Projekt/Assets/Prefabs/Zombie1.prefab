@@ -519,7 +519,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -540,7 +540,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &3246017727100939442
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed95f117f9aa699449935b83b9298485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 3
 --- !u!114 &3246017727100939468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,9 +581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumDistanceFromPlayer: 2.3
-  movementSpeed: 2.5
+  movementSpeed: 5
   rotationSpeed: 12.5
   visionRange: 20
+  randomization: 1
   attackInterval: 1
   countdownToAttack: 0
   zoombieAttackDamage: 10
