@@ -79,6 +79,7 @@ MonoBehaviour:
   - {fileID: 139350, guid: de863afb481be364ea04e5a347f5967f, type: 3}
   - {fileID: 171860, guid: ca5c291357dc8c54bbb0f485cdccdf17, type: 3}
   - {fileID: 182100, guid: 7505f79cb619cfd4ebb6af0704ad4260, type: 3}
+  powerUp: {fileID: 7430187719785769578, guid: eb6cdbfe02c32954280dacfe88799fa6, type: 3}
 --- !u!33 &1115517784477907363
 MeshFilter:
   m_ObjectHideFlags: 0

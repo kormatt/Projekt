@@ -25,12 +25,21 @@ public class PowerUp : MonoBehaviour
 
      IEnumerator Affect (Collider player) {
         GunControler gunControler = GunControler.Instance;
-        gunControler.PowerMoreBullets(1);
-        gunControler.PowerFasterFireRate(1);
-        gunControler.PowerBetterAccu(1);
+        switch (Random.Range(0,4)) {
+            case 0: gunControler.PowerMoreBullets(2); break;
+            case 1: gunControler.PowerFasterFireRate(2);  break;
+            case 2: gunControler.PowerBetterAccu(1);  break;
+            case 3: PlayerStats.jumpHeight += 0.1f;  break;
+            case 4: PlayerStats.playerSpeed += 2f;  break;            
+            default:
+                break;
+        }    
+        
+        
+        
 
-        PlayerStats.jumpHeight += 0.01f;
-        PlayerStats.playerSpeed += 10f;
+        
+        
         //PlayerStats.hp = 1;
 
         GetComponent<MeshRenderer>().enabled = false;

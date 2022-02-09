@@ -65,7 +65,7 @@ public class GunControler : MonoBehaviour {
 
     void Shoot() {
         Vector3 barrelPos = transform.GetChild(0).position;
-
+        GetComponent<Animator>().SetTrigger("e");
         var randomNumberX = Random.Range(-spread, spread);
         var randomNumberY = Random.Range(-spread, spread);
         var randomNumberZ = Random.Range(-spread, spread);
@@ -74,7 +74,7 @@ public class GunControler : MonoBehaviour {
         bullet.transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
         bullet.GetComponentInChildren<BulletControler>().damage = bulletDamage;
         Destroy(bullet, 2);
-    }
+            }
 
     public void PowerMoreBullets(int i) {
         shoots += i;

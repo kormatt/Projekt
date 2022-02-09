@@ -19,6 +19,7 @@ public class GunSelector : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
            Affect();
+            Destroy(transform.parent.gameObject);
 
         }
     }
