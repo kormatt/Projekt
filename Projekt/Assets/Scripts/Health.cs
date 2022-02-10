@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -6,18 +7,19 @@ public class Health : MonoBehaviour
 {
 	public float health = 100.0f;
 	private float starthealth;
-    //private Animator animator;
+    private Animator animator;
 
     private Volume v;
     private Bloom b;
     private Vignette vg;
     private GameObject postProcessing;
+    private bool isDead = false;
 
     void Start()
 	{
         postProcessing = GameObject.Find("/PostProcessing");
         starthealth = health;
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         //StartCoroutine(waiter());
     }
 
@@ -50,15 +52,28 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        
-        if(gameObject.tag != "Player") {
-            Destroy(gameObject);
-            //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);
-            //animator.SetBool("isDead", true);
+
+        if (gameObject.name == "Enemy" && !isDead)
+        {
+            Destroy(GameObject.Find("Burning"));
+            isDead = true;
+            Destroy(gameObject, 10.0f);
+
+            //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);            
         }
 
+        if (gameObject.tag != "Player" && !isDead) {
+            isDead = true;
+            animator.SetTrigger("Death");
+            Destroy(gameObject,10.0f);
+
+            //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);            
+        }       
+        
 
     }
+
+
 
     public bool IsDead()
     {
@@ -69,8 +84,9 @@ public class Health : MonoBehaviour
         return false;
     }
 
-    /*IEnumerator waiter()
-    {
+/*    IEnumerator waiter()
+    {        
         yield return new WaitForSeconds(4);
+        
     }*/
 }

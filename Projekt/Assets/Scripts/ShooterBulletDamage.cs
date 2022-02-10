@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShooterBulletDamage : MonoBehaviour {
 
-	public float damage = 20f;
+	public float damage = 20.0f;
 
 	void OnTriggerEnter(Collider collider)
 	{
@@ -21,6 +21,7 @@ public class ShooterBulletDamage : MonoBehaviour {
         {
 			Destroy(gameObject);
 		}
+		Destroy(gameObject,8.0f);
 		//powinienem sprawdziæ te¿ czy nabój przemierzy³ max zasiêg, jeœli tak to destroy
 	}
 }

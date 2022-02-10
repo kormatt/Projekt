@@ -14,7 +14,7 @@ public class ActivateBridge : MonoBehaviour
         transform.parent.rotation = Quaternion.Euler(rotationVector);
     }
     private void Update() {
-        Debug.Log(PlayerStats.EnemiesToKill);
+        //Debug.Log(PlayerStats.EnemiesToKill);
         if (PlayerStats.EnemiesToKill >1) {            
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;

@@ -1,14 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShooterAttack : MonoBehaviour {
+public class ShooterAttack : MonoBehaviour
+{
 
 
 	private Quaternion bulletRotation;
 	private GameObject playerObject;
 	private Vector3 playerPosition;
 	private Transform playerTransform;
+	private Transform rifleExitTransform;
 	private Transform shooterTransform;
+	private Transform targetForShooterTransform;
 
 	public float countdownToShot = 0f;
 	public float shotInterval = 0.5f;
@@ -20,15 +23,19 @@ public class ShooterAttack : MonoBehaviour {
 		playerObject = GameObject.FindWithTag("Player");
 		playerTransform = playerObject.transform;
 		shooterTransform = transform;
+
+		rifleExitTransform = shooterTransform.Find("Rifle_exit").transform;
+		targetForShooterTransform = playerTransform.Find("Target_For_Shooter").transform;
+
 	}
 
-    private bool Targeting(float range)
+	private bool Targeting(float range)
 	{
-		Ray ray = new Ray(shooterTransform.position, shooterTransform.forward);
+		Transform shooterEyesTransform = shooterTransform.Find("Shooter_Eyes").transform;
+		Ray shooterSightRay = new Ray(shooterEyesTransform.position, shooterTransform.forward);
 		RaycastHit hitInfo;
-		
-		
-		if (Physics.Raycast(ray, out hitInfo, range))
+
+		if (Physics.Raycast(shooterSightRay, out hitInfo, range))
 		{
 			GameObject hitObject = hitInfo.collider.gameObject;
 
@@ -42,9 +49,14 @@ public class ShooterAttack : MonoBehaviour {
 
 	public Quaternion GetBulletRotation()
 	{
-		//chwilowo y - 0.5
-		playerPosition = new Vector3(playerTransform.position.x, playerTransform.position.y-0.5f, playerTransform.position.z);
-		bulletRotation = Quaternion.LookRotation(playerPosition - transform.position);
+		playerPosition = new Vector3(
+			targetForShooterTransform.position.x,
+			targetForShooterTransform.position.y,
+			targetForShooterTransform.position.z
+			);
+		Vector3 riflePosition = rifleExitTransform.position + rifleExitTransform.forward;
+		bulletRotation = Quaternion.LookRotation(playerPosition - riflePosition);
+
 		return bulletRotation;
 	}
 
@@ -67,12 +79,9 @@ public class ShooterAttack : MonoBehaviour {
 			if (countdownToShot >= shotInterval && Targeting(GetVisionRange()))
 			{
 				countdownToShot = 0;
+				Vector3 riflePosition = rifleExitTransform.position + rifleExitTransform.forward;
 
-				//chwilowo w taki sposób
-				Vector3 riflePosition	 = shooterTransform.position + shooterTransform.forward;
-                riflePosition.y = 2.2f;
-
-                Instantiate(shooterBulletPrefab, riflePosition, GetBulletRotation());
+				Instantiate(shooterBulletPrefab, riflePosition, GetBulletRotation());
 			}
 		}
 	}

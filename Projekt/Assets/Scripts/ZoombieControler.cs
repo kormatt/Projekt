@@ -88,12 +88,17 @@ public class ZoombieControler : MonoBehaviour {
             lookAtPlayer = true;
             ZoombieAttack();
         }
+        else if (distance > visionRange)
+        {
+            GetComponent<Animator>().SetBool("Run", false);
+        }
 
         if (!ZoombieIsDead()) {
             RootationToPlayer();
         }
         else //ten else prawdopodobnie nie potrzebny
         {
+
             if (GetComponent<Rigidbody>()) {
                 GetComponent<Rigidbody>().freezeRotation = false;
                 //destroy?
