@@ -38,7 +38,10 @@ public class PlayerControler : MonoBehaviour {
         Vector3 move = new Vector3(movment.x, 0f, movment.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
-
+        if (move.x != 0 || move.z != 0)
+            GetComponent<AudioSource>().volume = 0.3f;
+        else
+            GetComponent<AudioSource>().volume = 0f;
         move.Normalize();
         controller.Move(move * Time.deltaTime * PlayerStats.playerSpeed);
 

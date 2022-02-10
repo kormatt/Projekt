@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4763114319786005131}
   - component: {fileID: 4763114319786005133}
   - component: {fileID: 4763114319786005130}
+  - component: {fileID: -2199456743068616962}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -196,10 +197,11 @@ MonoBehaviour:
   movementSpeed: 2
   rotationSpeed: 8
   visionRange: 100
-  randomization: 1
   attackInterval: 0.5
   countdownToAttack: 0
   zoombieAttackDamage: 10
+  randomImpactOnMovmentSpeed: 0
+  randomTarget: 0
 --- !u!114 &4763114319786005130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +214,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed95f117f9aa699449935b83b9298485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 50
+--- !u!195 &-2199456743068616962
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763114319437698570}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4763114319437703190
 GameObject:
   m_ObjectHideFlags: 0

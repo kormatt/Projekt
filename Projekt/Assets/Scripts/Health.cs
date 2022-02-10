@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
     public void Die()
     {
 
+            
         if (gameObject.name == "Enemy" && !isDead)
         {
             Destroy(GameObject.Find("Burning"));
@@ -68,8 +69,13 @@ public class Health : MonoBehaviour
             Destroy(gameObject,10.0f);
             PlayerStats.EnemiesToKill--;
             PlayerStats.EnemiesKilled++;
+            if (gameObject.name == "Boss") {
+                animator = GameObject.Find("WIN").GetComponent<Animator>();
+                animator.SetTrigger("Win");
+            }
             //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);            
         }
+        
 
     }
 

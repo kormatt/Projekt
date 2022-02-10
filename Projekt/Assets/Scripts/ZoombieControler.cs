@@ -120,7 +120,8 @@ public class ZoombieControler : MonoBehaviour {
 		}
 		else //ten else prawdopodobnie nie potrzebny
 		{
-			if (GetComponent<Rigidbody>()) {
+			navMeshAgent.SetDestination(transform.position);
+			if (GetComponent<Rigidbody>()) {				
 				GetComponent<Rigidbody>().freezeRotation = false;
 				//destroy?
 			}

@@ -87,6 +87,7 @@ public class ShooterController : MonoBehaviour {
 		}
 		else //obiekt martwy
 		{
+			navMeshAgent.SetDestination(transform.position);
 			if (GetComponent<Rigidbody>()) {
 				GetComponent<Rigidbody>().freezeRotation = false;
 			}
