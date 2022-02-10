@@ -14,7 +14,10 @@ public class BossSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerStats.OpenIslands >= 8 && PlayerStats.EnemiesToKill < 1)
+        if (PlayerStats.OpenIslands >= 8 && PlayerStats.EnemiesToKill < 1) {
             Instantiate(Boss, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+            
     }
 }

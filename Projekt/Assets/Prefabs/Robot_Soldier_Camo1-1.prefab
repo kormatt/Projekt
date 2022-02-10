@@ -2412,7 +2412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownToShot: 0
-  shotInterval: 1
+  shotInterval: 0.8
+  shotIntervalRandomization: 0.2
   shooterBulletPrefab: {fileID: 3467377934136419680, guid: 4b7ef64ac86aaa64ca0cba5bd9c5b42d, type: 3}
 --- !u!114 &7167999853774793539
 MonoBehaviour:
@@ -2429,7 +2430,7 @@ MonoBehaviour:
   minimumDistanceFromPlayer: 7
   movementSpeed: 2
   rotationSpeed: 12.5
-  visionRange: 20
+  visionRange: 50
 --- !u!114 &7167999853774793540
 MonoBehaviour:
   m_ObjectHideFlags: 0

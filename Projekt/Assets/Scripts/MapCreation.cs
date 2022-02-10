@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
@@ -24,6 +25,7 @@ public class MapCreation : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        
         Vector2 pos = new Vector2(transform.position.x, transform.position.z);
         //Debug.Log(pos);
         for (int i = -radius; i < radius; i++)
@@ -54,6 +56,10 @@ public class MapCreation : MonoBehaviour
                             _bridge.transform.parent = gameObject.transform;
                     }
             }
+
+
+        NavMeshBaker.navMeshSurfaces[PlayerStats.OpenIslands] = GetComponent<NavMeshSurface>();
+        NavMeshBaker.BakeMesh();
     }
 
     private void DecorateMap() {
@@ -95,9 +101,10 @@ public class MapCreation : MonoBehaviour
     }
 
     private void placeSpawners() {
-        Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius/2f, 0.5f, Random.insideUnitCircle.y * radius / 2f);
-        targetPos += this.transform.position;
-        Instantiate(enemySpawner, targetPos, Quaternion.identity);
+        //Vector3 targetPos = new Vector3(Random.insideUnitCircle.x * radius/2f, 0.5f, Random.insideUnitCircle.y * radius / 2f);
+        //targetPos += this.transform.position;
+        //Instantiate(enemySpawner, targetPos, Quaternion.identity);
+        Instantiate(enemySpawner, transform.position, Quaternion.identity);
     }
 
     private void Update() {

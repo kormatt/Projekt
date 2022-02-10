@@ -583,11 +583,11 @@ MonoBehaviour:
   minimumDistanceFromPlayer: 2.3
   movementSpeed: 5
   rotationSpeed: 12.5
-  visionRange: 20
-  randomization: 1
+  visionRange: 50
+  randomization: 2
   attackInterval: 1
   countdownToAttack: 0
-  zoombieAttackDamage: 10
+  zoombieAttackDamage: 3
 --- !u!1 &1469534498969188625
 GameObject:
   m_ObjectHideFlags: 0

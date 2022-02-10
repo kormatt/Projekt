@@ -14,12 +14,14 @@ public class ShooterAttack : MonoBehaviour
 	private Transform targetForShooterTransform;
 
 	public float countdownToShot = 0f;
-	public float shotInterval = 0.5f;
+	public float shotInterval = 0.3f;
+	public float shotIntervalRandomization = 0.5f;
 
 	public GameObject shooterBulletPrefab; //nie zd¹¿y³e sprawdziæ czy mo¿e byæ private
 
 	void Start()
 	{
+		shotInterval += Random.Range(-shotIntervalRandomization, shotIntervalRandomization);
 		playerObject = GameObject.FindWithTag("Player");
 		playerTransform = playerObject.transform;
 		shooterTransform = transform;

@@ -379,7 +379,7 @@ MonoBehaviour:
   minimumDistanceFromPlayer: 5
   movementSpeed: 2.5
   rotationSpeed: 12.5
-  visionRange: 20
+  visionRange: 50
   randomization: 1
   attackInterval: 2.5
   countdownToAttack: 0
