@@ -27,9 +27,10 @@ public class ActivateBridge : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
+            FindObjectOfType<AudioManager>().Play("Bridge");
             var newbridge = Instantiate(bridge, new Vector3(0, 0, 0), transform.parent.rotation);
             newbridge.transform.parent = transform.parent.parent.transform;
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
             
     }

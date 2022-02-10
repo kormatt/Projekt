@@ -20,6 +20,7 @@ public class GunSelector : MonoBehaviour
         if (other.tag == "Player") {
            Affect();
             Destroy(transform.parent.gameObject);
+            FindObjectOfType<AudioManager>().Play("PickUp");
 
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -14,7 +15,6 @@ public class Health : MonoBehaviour
     private Vignette vg;
     private GameObject postProcessing;
     private bool isDead = false;
-
     void Start()
 	{
         postProcessing = GameObject.Find("/PostProcessing");
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         if (gameObject.tag == "Player") {
             v = postProcessing.GetComponent<Volume>();
             v.profile.TryGet(out vg);
-            Debug.Log("Player get hit!");
+            FindObjectOfType<AudioManager>().Play("GetHit");
 
             float currper = 1 - (health / starthealth);
             vg.intensity.value = currper;
@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
             Destroy(GameObject.Find("Burning"));
             isDead = true;
             Destroy(gameObject, 10.0f);
-
+            PlayerStats.EnemiesKilled++;
             //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);            
         }
 
@@ -66,10 +66,10 @@ public class Health : MonoBehaviour
             isDead = true;
             animator.SetTrigger("Death");
             Destroy(gameObject,10.0f);
-
+            PlayerStats.EnemiesToKill--;
+            PlayerStats.EnemiesKilled++;
             //Destroy(gameObject.GetComponent<BoxCollider>(), 1.7f);            
-        }       
-        
+        }
 
     }
 

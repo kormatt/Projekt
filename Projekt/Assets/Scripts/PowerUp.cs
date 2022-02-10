@@ -18,6 +18,7 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
+            FindObjectOfType<AudioManager>().Play("PickUp");
             StartCoroutine(Affect(other));
             
         }

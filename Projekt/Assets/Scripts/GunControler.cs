@@ -43,6 +43,7 @@ public class GunControler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Debug.Log(PlayerStats.EnemiesToKill+" Left to kill");
         if (inputManager.PlayerSchooted())
             readytoshot = !readytoshot;
 
@@ -102,19 +103,19 @@ public class GunControler : MonoBehaviour {
                 FireRate = 1.5f;
                 shoots = 4;
                 spread = 8f;
-                bulletDamage = 2;
+                bulletDamage = 29;
                 break;
             case 2:
                 FireRate = 0.7f;
                 shoots = 0;
                 spread = 2f;
-                bulletDamage = 1;
+                bulletDamage = 39;
                 break;
             case 3:
                 FireRate = 2f;
                 shoots = 0;
                 spread = 0f;
-                bulletDamage = 5;
+                bulletDamage = 59;
                 break;
             default:
                 break;
