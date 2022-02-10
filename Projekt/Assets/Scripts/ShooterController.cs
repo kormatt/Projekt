@@ -1,3 +1,4 @@
+using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
 
@@ -25,7 +26,9 @@ public class ShooterController : MonoBehaviour {
 	private Transform targetTransform3;
 	private Transform targetTransform4;
 
+	NavMeshAgent navMeshAgent;
 	void Start() {
+		navMeshAgent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
 		shooter = transform;
 		if (GetComponent<Rigidbody>()) {
 			GetComponent<Rigidbody>().freezeRotation = true;
@@ -63,7 +66,8 @@ public class ShooterController : MonoBehaviour {
 
 		if (distance <= visionRange && distance > minimumDistanceFromPlayer && !ShooterIsDead()) {
 			lookAtPlayer = true;
-			shooter.position = Vector3.MoveTowards(shooter.position, targetPosition, (movementSpeed + randomImpactOnMovmentSpeed) * Time.deltaTime);
+			//shooter.position = Vector3.MoveTowards(shooter.position, targetPosition, (movementSpeed + randomImpactOnMovmentSpeed) * Time.deltaTime);
+			navMeshAgent.SetDestination(playerPosition);
 			GetComponent<Animator>().SetBool("Run", true);
 
 			attack.Shot();

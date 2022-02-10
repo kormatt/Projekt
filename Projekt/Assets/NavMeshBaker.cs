@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class NavMeshBaker : MonoBehaviour
 {
-    public static NavMeshSurface[] navMeshSurfaces = new NavMeshSurface[8];
+    public static NavMeshSurface[] navMeshSurfaces = new NavMeshSurface[16];
 
 
     private void Awake() {

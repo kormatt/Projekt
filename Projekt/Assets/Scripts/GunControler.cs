@@ -112,10 +112,10 @@ public class GunControler : MonoBehaviour {
                 bulletDamage = 3;
                 break;
             case 3:
-                FireRate = 2f;
+                FireRate = 0.2f;
                 shoots = 0;
                 spread = 0f;
-                bulletDamage = 5;
+                bulletDamage = 59;
                 break;
             default:
                 break;

@@ -46,7 +46,8 @@ public class MapCreation : MonoBehaviour
         for (int i = 0; i<= PlayerStats.OpenIslands*2;i++)
             placeSpawners();
 
-
+        
+        if(PlayerStats.OpenIslands==0)
         for (int i = -radius; i < radius; i++)
             for (int j = -radius; j < radius; j++) {
                 if (i == -1  || i == 0 || i == 1)
@@ -57,9 +58,11 @@ public class MapCreation : MonoBehaviour
                     }
             }
 
-
         NavMeshBaker.navMeshSurfaces[PlayerStats.OpenIslands] = GetComponent<NavMeshSurface>();
+
         NavMeshBaker.BakeMesh();
+
+
     }
 
     private void DecorateMap() {

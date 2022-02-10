@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 
 
@@ -33,7 +34,13 @@ public class ZoombieControler : MonoBehaviour {
 	private Transform targetTransform3;
 	private Transform targetTransform4;
 
+
+	NavMeshAgent navMeshAgent;
+
 	void Start() {
+
+		navMeshAgent = this.GetComponent<NavMeshAgent>();
+
 		GetComponent<CapsuleCollider>().isTrigger = true;
 		GetComponent<Rigidbody>().isKinematic = true;
 		GetComponent<Rigidbody>().useGravity = true;
@@ -92,7 +99,10 @@ public class ZoombieControler : MonoBehaviour {
 
 		if (distance <= visionRange && distance > minimumDistanceFromPlayer && !ZoombieIsDead()) {
 			lookAtPlayer = true;
-			zoombie.position = Vector3.MoveTowards(zoombie.position, targetPosition, (movementSpeed + randomImpactOnMovmentSpeed) * Time.deltaTime);
+			//zoombie.position = Vector3.MoveTowards(zoombie.position, targetPosition, (movementSpeed + randomImpactOnMovmentSpeed) * Time.deltaTime);
+			navMeshAgent.SetDestination(playerPosition);
+
+
 
 			GetComponent<Animator>().SetBool("Attack", false);
 			GetComponent<Animator>().SetBool("Run", true);

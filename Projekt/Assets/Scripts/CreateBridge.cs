@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CreateBridge : MonoBehaviour {
     public GameObject Island;
@@ -17,6 +18,7 @@ public class CreateBridge : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        
         PlayerStats.OpenIslands++;
         Debug.Log(PlayerStats.OpenIslands+" - islands open");
         Vector2 pos = new Vector2(transform.position.x - width / 2, transform.position.z);
@@ -34,6 +36,9 @@ public class CreateBridge : MonoBehaviour {
         newIsland.transform.parent = transform;
         newIsland.transform.localPosition = new Vector3(0f, 0f, 90f);
         newIsland.GetComponent<MapCreation>().bridge = null;
+
+        NavMeshBaker.navMeshSurfaces[PlayerStats.OpenIslands + 9] = GetComponent<NavMeshSurface>();
+        //NavMeshBaker.BakeMesh();
 
     }
 
