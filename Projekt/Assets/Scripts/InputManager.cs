@@ -5,7 +5,6 @@ using UnityEngine;
 public class InputManager : MonoBehaviour {
     private PlayerControls playerControls;
 
-
     //Singleton pattern 
     private static InputManager _instance;
     public static InputManager Instance {
@@ -27,14 +26,13 @@ public class InputManager : MonoBehaviour {
 
         playerControls = new PlayerControls();
     }
-    
+
     private void OnEnable() {
         playerControls.Enable();
     }
     private void OnDisable() {
         playerControls.Disable();
     }
-
 
     //Reading input keys defined for movment from input manager
     public Vector2 GetPlayerMovement() {

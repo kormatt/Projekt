@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 2660087585710077287}
   - component: {fileID: 6329517060438302632}
   - component: {fileID: 665170881985701059}
-  - component: {fileID: 8626573756968611873}
   - component: {fileID: -2029880226631058459}
+  - component: {fileID: -5221834790091573866}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5488234035370360766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.137, y: 0, z: 17.17}
+  m_LocalPosition: {x: -1.137, y: 0, z: 17.323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7131858360395248215}
@@ -178,22 +178,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8626573756968611873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488234035370360766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381dc5dad5b2e7a41a969146e0dc73dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TurnSpeed: 1
-  Speed: 10
-  damage: 3
-  Health: 1
 --- !u!114 &-2029880226631058459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +191,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &-5221834790091573866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488234035370360766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381dc5dad5b2e7a41a969146e0dc73dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skullTurnSpeed: 1
+  skullSpeed: 10
+  skullDamage: 3
 --- !u!1001 &7131334314608700863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,10 +277,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 357834071770043410, guid: 9b9f11fc255b92149ac9f8bad25ebb66, type: 3}
-    - {fileID: -9048306959556970080, guid: 9b9f11fc255b92149ac9f8bad25ebb66, type: 3}
-    - {fileID: 6888845177249935983, guid: 9b9f11fc255b92149ac9f8bad25ebb66, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9f11fc255b92149ac9f8bad25ebb66, type: 3}
 --- !u!4 &7131858360395248215 stripped
 Transform:

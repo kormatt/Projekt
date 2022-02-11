@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 4763114319430429816}
   - component: {fileID: 4763114319786005128}
   - component: {fileID: 4763114319786005131}
-  - component: {fileID: 4763114319786005133}
   - component: {fileID: 4763114319786005130}
   - component: {fileID: -2199456743068616962}
+  - component: {fileID: 5021890836654770150}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -181,27 +181,6 @@ CapsuleCollider:
   m_Height: 0.49
   m_Direction: 1
   m_Center: {x: 0, y: 0.21, z: 0}
---- !u!114 &4763114319786005133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4763114319437698570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e921e3d13b8b14caa752cac648d207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minimumDistanceFromPlayer: 10
-  movementSpeed: 2
-  rotationSpeed: 8
-  visionRange: 100
-  attackInterval: 0.5
-  countdownToAttack: 0
-  zoombieAttackDamage: 10
-  randomImpactOnMovmentSpeed: 0
-  randomTarget: 0
 --- !u!114 &4763114319786005130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +216,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5021890836654770150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763114319437698570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e921e3d13b8b14caa752cac648d207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackInterval: 0.5
+  countdownToAttack: 0
+  minimumDistanceFromPlayer: 10
+  rotationSpeed: 8
+  visionRange: 100
+  enemyAttackDamage: 10
 --- !u!1 &4763114319437703190
 GameObject:
   m_ObjectHideFlags: 0
